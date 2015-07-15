@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<base target="main" />
+<link rel="stylesheet" type="text/css" href="../../../css/frontmiddle.css" />
+<script language="javascript">
+	function doAllSelected()
+	{
+		if(document.forms[0].elements["Checkbox0"].checked)
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = true;
+			}
+		} else
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = false;
+			}
+		}		
+	}
+
+	function doDelete()
+	{
+		if(confirm("确定要删除吗？"))
+		{
+			location.href="yearPerformanceSearch.html";
+		}
+		return;
+	}
+	
+	function doStandardUplode()
+	{
+		//if(confirm("确定要上传吗？"))
+		//{
+			//location.href="yearPerformanceStandardUpload.html";
+			
+			
+			window.open('yearPerformanceStandardUpload.html', 'newwindow', 'height=600, width=900, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+		//}
+		//return;
+	}
+	
+	function doStandardUpdate()
+	{
+		//if(confirm("确定要上传吗？"))
+		//{
+			//location.href="yearPerformanceStandardUpload.html";
+			window.open('yearPerformanceStandardUpload.html', 'newwindow', 'height=600, width=900, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+		//}
+		//return;
+	}
+	
+	function doStandardDelete()
+	{
+		if(confirm("确定要删除吗？"))
+		{
+			location.href="yearPerformanceSearch.html";
+		}
+		return;
+	}
+</script>
+<script src="../../../js/Calendar.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<form name="form1">
+		<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+			<tr>
+				<td >
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+						<tr>
+							<td class=" titlebold">年度绩效查询</td>
+						</tr>
+					</table>
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+						<tr>
+							<td class="line"></td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center" class="tableserch">
+						<tr>
+							<td align="center" >
+								<table  cellpadding="0" cellspacing="0" width="95%">								
+									<tr>
+										<td align="right">区域：</td>
+										<td align="left">
+											<select name="area" style="width:155px;">
+												<option value="0"></option>
+												<option value="1">东区</option>
+												<option value="2">南区</option>
+												<option value="3">西区</option>
+												<option value="4">北区</option>
+											</select>
+										</td>
+										<td align="right">年份：</td>
+										<td align="left">
+											<input type="text" name="year_Begin" style="width: 62px">&nbsp;年
+											～
+											<input type="text" name="year_End" style="width: 62px">&nbsp;年
+										</td>
+									</tr>
+									<tr>
+										<td align="right">营业厅名称：</td>
+										<td align="left"><input type="text" name="businessHall"></td>
+										<td align="right">分值范围：</td>
+										<td align="left">
+											<input type="text" name="grade_begin" style="width:80px;">
+											～
+											<input type="text" name="grade_end" style="width:80px;">
+										</td>
+									</tr>
+									<tr>
+										<td align="right">姓名：</td>
+										<td align="left"><input type="text" name="employeeName"></td>
+										<td align="right"></td>
+										<td align="left">
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<input name="Button1" type="button" value="查询" class="btn_2" />&nbsp;
+											<input name="Button2" type="reset" value="重置" class="btn_2" />
+										</td>
+									</tr>
+								</table>							
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" class="tablelist" align="center">
+						<tr>
+							<th ><input name="Checkbox0" type="checkbox" onclick="javascript:doAllSelected();"/>全选</th>
+							<th>序号</th>
+							<th>工号</th>
+							<th>姓名</th>
+							<th>身份证号</th>
+							<th>营业厅编码</th>
+							<th>营业厅名称</th>
+							<th>年份(年)</th>
+							<th>成绩(分)</th>
+							<th>绩效等级</th>
+							<th>备注</th>
+							<th>年度绩效评分标准</th>
+							<th>操作</th>
+						</tr>
+						<tr>
+							<th><input name="Checkbox1" type="checkbox"/></th>
+							<td>1</td>
+							<td>0011</td>
+							<td>张一</td>
+							<td>123456789012345678</td>
+							<td>A008008008</td>
+							<td>鼓楼营业厅</td>
+							<td>2007</td>	
+							<td nowrap><a href="">90</a></td>
+							<td>优良</td>
+							<td>表现优良</td>
+							<td nowrap><a href="javascript:doStandardUplode();">上传</a></td>
+							<td nowrap><a href="yearPerformanceUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox2" type="checkbox"/></th>
+							<td>2</td>
+							<td>0011</td>
+							<td>张二</td>
+							<td>123456789012345678</td>
+							<td>A008008008</td>
+							<td>鼓楼营业厅</td>
+							<td>2006</td>	
+							<td nowrap><a href="">90</a></td>
+							<td>优良</td>
+							<td>表现优良</td>
+							<td nowrap><a href="javascript:doStandardUplode();">上传</a></td>
+							<td nowrap><a href="yearPerformanceUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox3" type="checkbox"/></th>
+							<td>3</td>
+							<td>0011</td>
+							<td>张三</td>
+							<td>123456789012345678</td>
+							<td>A008008008</td>
+							<td>鼓楼营业厅</td>
+							<td>2005</td>	
+							<td nowrap><a href="">90</a></td>
+							<td>优良</td>
+							<td>表现优良</td>
+							<td nowrap><a href="javascript:doStandardUplode();">上传</a></td>
+							<td nowrap><a href="yearPerformanceUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox4" type="checkbox"/></th>
+							<td>4</td>
+							<td>0011</td>
+							<td>张四</td>
+							<td>123456789012345678</td>
+							<td>A008008008</td>
+							<td>鼓楼营业厅</td>
+							<td>2004</td>	
+							<td nowrap><a href="">90</a></td>
+							<td>优良</td>
+							<td>表现优良</td>
+							<td nowrap><a href="javascript:doStandardUpdate();">更新</a>&nbsp;<a href="javascript:doStandardDelete();">删除</a></td>
+							<td nowrap><a href="yearPerformanceUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox5" type="checkbox"/></th>
+							<td>5</td>
+							<td>0011</td>
+							<td>张五</td>
+							<td>123456789012345678</td>
+							<td>A008008008</td>
+							<td>鼓楼营业厅</td>
+							<td>2003</td>	
+							<td nowrap><a href="">90</a></td>
+							<td>优良</td>
+							<td>表现优良</td>
+							<td nowrap><a href="javascript:doStandardUpdate();">更新</a>&nbsp;<a href="javascript:doStandardDelete();">删除</a></td>
+							<td nowrap><a href="yearPerformanceUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+					</table>
+					<table style="width: 95%" cellspacing="0" cellpadding="0" align="center">
+						<tr>
+							<td  class="page" >
+								&nbsp;共5页 当前第1页 
+								<a href="#">首页</a> 
+								<a href="#">上一页</a> 
+								<a href="#">下一页</a> 
+								<a href="#">末页</a>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" align="center">
+						<tr>
+							<td align="center" >
+								<input type="button" name="doBatchDeleteButton" value="批量删除" class="btn_5" onclick="javascript:doDelete();"/>
+								<input type="button" name="doGetResultButton" value="导出全部查询结果" class="btn_9"/>
+								<input type="button" name="doSingleButton" value="年度绩效单条录入" class="btn_9" onclick="location.href='yearPerformanceSingle.html'"/>
+								<input type="button" name="doBatchButton" value="年度绩效批量导入" class="btn_9" onclick="location.href='yearPerformanceBatch.html'"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<br />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

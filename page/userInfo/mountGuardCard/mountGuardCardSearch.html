@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<base target="main" />
+<link rel="stylesheet" type="text/css" href="../../../css/frontmiddle.css" />
+<script language="javascript">
+	function doAllSelected()
+	{
+		if(document.forms[0].elements["Checkbox0"].checked)
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = true;
+			}
+		} else
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = false;
+			}
+		}		
+	}
+
+	function doDelete()
+	{
+		if(confirm("确定要删除吗？"))
+		{
+			location.href="mountGuardCardSearch.html";
+		}
+		return;
+	}
+</script>
+<script src="../../../js/Calendar.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<form name="form1">
+		<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+			<tr>
+				<td >
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+						<tr>
+							<td class=" titlebold">合作厅上岗证查询</td>
+						</tr>
+					</table>
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+						<tr>
+							<td class="line"></td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center" class="tableserch">
+						<tr>
+							<td align="center" >
+								<table  cellpadding="0" cellspacing="0" width="95%">								
+									<tr>
+										<td align="right">区域：</td>
+										<td align="left">
+											<select name="area" style="width:155px;">
+												<option value="0"></option>
+												<option value="1">东区</option>
+												<option value="2">南区</option>
+												<option value="3">西区</option>
+												<option value="4">北区</option>
+											</select>
+										</td>
+										<td align="right">营业厅名称：</td>
+										<td align="left"><input type="text" name="businessHall"></td>
+									</tr>
+									<tr>
+										<td align="right">姓名：</td>
+										<td align="left"><input type="text" name="employeeName"></td>
+										<td align="right">是否有工号：</td>
+										<td align="left">
+											<select name="companyNumFlag" style="width:155px;">
+												<option value="0"></option>
+												<option value="1">有工号</option>
+												<option value="2">无工号</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td align="right">考核类型：</td>
+										<td align="left">
+											<select name="examType" style="width:155px;">
+												<option value="0">营业员考核</option>
+												<option value="1">帐务稽核人员考核</option>
+											</select>
+										</td>
+										<td align="right">是否通过：</td>
+										<td align="left">
+											<select name="passFlag" style="width:155px;">
+												<option value="0"></option>
+												<option value="1">通过</option>
+												<option value="2">不通过</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td align="right">上岗证通过日期：</td>
+										<td align="left" colspan="3">
+											<input type="text" name="passTimeBegin" onclick="getMonthString(this)" style="width: 80px" readonly>
+											～
+											<input type="text" name="passTimeEnd" onclick="getMonthString(this)" style="width: 80px" readonly>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4">
+											<input name="Button1" type="button" value="查询" class="btn_2" />&nbsp;
+											<input name="Button2" type="reset" value="重置" class="btn_2" />
+										</td>
+									</tr>
+								</table>							
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" class="tablelist" align="center">
+						<tr>
+							<th ><input name="Checkbox0" type="checkbox" onclick="javascript:doAllSelected();"/>全选</th>
+							<th>序号</th>
+							<th>区域</th>
+							<th>工号</th>
+							<th>姓名</th>
+							<th>身份证号</th>
+							<th>营业厅编码</th>
+							<th>营业厅名称</th>
+							<th>联系电话</th>
+							<th>考核类别</th>
+							<th>考核时间</th>
+							<th>考核有效时间(月)</th>
+							<th>成绩(分)</th>
+							<th>是否通过</th>
+							<th nowrap>操作</th>
+						</tr>
+						<tr>
+							<th><input name="Checkbox1" type="checkbox"/></th>
+							<td>1</td>
+							<td>东区 </td>
+							<td>0011</td>
+							<td>张三</td>
+							<td>123456789012345678</td>
+							<td>011234</td>
+							<td>鼓楼营业厅</td>
+							<td>15950591203</td>	
+							<td>营业员考核</td>
+							<td>2008-05-01</td>
+							<td>10</td>
+							<td>90</td>
+							<td>通过</td>
+							<td nowrap><a href="mountGuardCardUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox2" type="checkbox"/></th>
+							<td>2</td>
+							<td>东区 </td>
+							<td>0011</td>
+							<td>张三</td>
+							<td>123456789012345678</td>
+							<td>011234</td>
+							<td>鼓楼营业厅</td>
+							<td>15950591203</td>	
+							<td>营业员考核</td>
+							<td>2008-05-01</td>
+							<td>10</td>
+							<td>90</td>
+							<td>通过</td>
+							<td nowrap><a href="mountGuardCardUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox3" type="checkbox"/></th>
+							<td>3</td>
+							<td>东区 </td>
+							<td>0011</td>
+							<td>张三</td>
+							<td>123456789012345678</td>
+							<td>011234</td>
+							<td>鼓楼营业厅</td>
+							<td>15950591203</td>	
+							<td>营业员考核</td>
+							<td>2008-05-01</td>
+							<td>10</td>
+							<td>90</td>
+							<td>通过</td>
+							<td nowrap><a href="mountGuardCardUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox4" type="checkbox"/></th>
+							<td>4</td>
+							<td>东区 </td>
+							<td>0011</td>
+							<td>张三</td>
+							<td>123456789012345678</td>
+							<td>011234</td>
+							<td>鼓楼营业厅</td>
+							<td>15950591203</td>	
+							<td>营业员考核</td>
+							<td>2008-05-01</td>
+							<td>10</td>
+							<td>90</td>
+							<td>通过</td>
+							<td nowrap><a href="mountGuardCardUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+						<tr>
+							<th><input name="Checkbox5" type="checkbox"/></th>
+							<td>5</td>
+							<td>东区 </td>
+							<td>0011</td>
+							<td>张三</td>
+							<td>123456789012345678</td>
+							<td>011234</td>
+							<td>鼓楼营业厅</td>
+							<td>15950591203</td>	
+							<td>营业员考核</td>
+							<td>2008-05-01</td>
+							<td>10</td>
+							<td>90</td>
+							<td>通过</td>
+							<td nowrap><a href="mountGuardCardUpdate.html">修改</a>&nbsp;<a href="javascript:doDelete();">删除</a></td>
+						</tr>
+					</table>
+					<table style="width: 95%" cellspacing="0" cellpadding="0" align="center">
+						<tr>
+							<td  class="page" >
+								&nbsp;共5页 当前第1页 
+								<a href="#">首页</a> 
+								<a href="#">上一页</a> 
+								<a href="#">下一页</a> 
+								<a href="#">末页</a>
+							</td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" align="center">
+						<tr>
+							<td align="center" >
+								<input type="button" name="doBatchDeleteButton" value="批量删除" class="btn_5" onclick="javascript:doDelete();"/>
+								<input type="button" name="doGetResultButton" value="导出全部查询结果" class="btn_9"/>
+								<input type="button" name="doSingleButton" value="合作厅上岗证单条录入" class="btn_10" onclick="location.href='mountGuardCardSingle.html'"/>
+								<input type="button" name="doBatchButton" value="合作厅上岗证批量导入" class="btn_10" onclick="location.href='mountGuardCardBatch.html'"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<br />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

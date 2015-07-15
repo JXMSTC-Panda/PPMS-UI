@@ -1,0 +1,95 @@
+﻿body{
+margin:0;
+background-color:#d2e9fe;
+font-size:12px;
+font-family:Verdana;
+}
+.frontadmin_banar
+{
+	background-image:url('logotopbg.jpg');
+	height:106px;
+	
+}
+.frontadminbanaruser
+{
+	background-image:url('logotopbanarbg.jpg');
+	height:31px;
+	text-align:right;
+	padding-right:10px;
+	
+}
+.frontadminbanaruser a
+{
+	color:black;	
+	text-decoration:none;
+}
+.frontadminbanaruser a:hover
+{
+	color:maroon;	
+	text-decoration:none;	
+}
+
+.menu_title {
+	padding-left:10px;
+	font-weight:bold;
+	color:#0359ad;
+	font-size:14px;
+}
+.menutop
+{
+height:5px;
+}
+.menu_title1
+{
+color:#ffffff;
+padding-left:18px;
+}
+.menu_title1 a 
+{
+color:#ffffff;
+text-decoration:none;	
+}
+.menu_title1 a:hover
+{
+color:#ffffff;
+text-decoration:none;
+}
+.menu_title1 a:link
+{
+color:#ffffff;
+text-decoration:none;
+	
+}
+.menu_title1 a:visited
+{
+color:#ffffff;
+text-decoration:none;
+	
+}
+.menu_title1 a:active
+{
+color:#ffffff;
+text-decoration:none;
+	
+}
+
+
+.menu_word
+{
+padding-left:10px;
+}
+.menu2
+{
+font-weight:bold;
+padding-left:10px;
+}
+.menulast
+{
+padding-left: 2px;
+text-align: center;
+}
+.menulastline
+{
+height:1px;
+background-image:url('menu_line.gif');
+}
