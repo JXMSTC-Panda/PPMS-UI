@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>中间</title>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<script>
+		function Submit_onclick()
+        {
+	       if(parent.myFrame.cols=="200,8,*")
+	        {
+		       parent.myFrame.cols="0%,8,*";
+		       document.getElementById("ImgArrow").src="images/ar.gif";
+	        }
+			else
+			{
+				parent.myFrame.cols="200,8,*"
+				document.getElementById("ImgArrow").src="images/al.gif";
+			}
+       }
+       function MyLoad() 
+       {
+			if(window.parent.location.href.indexOf("MainUrl")>0)
+			{
+				window.top.midFrame.document.getElementById("ImgArrow").src="images/ar.gif";
+			}
+		}
+</script>
+<meta content="MSHTML 6.00.2900.3059" name=GENERATOR>
+<base target="middle">
+</head>
+
+<body leftMargin=0 topMargin=0 onload=MyLoad() style="background-color:#d2e9fe;">
+	<table height="100%" cellSpacing=0 cellPadding=0 width=8 border=0 background="images/ab.gif">
+		<tr>
+			<td width=8 background="../images/ab.gif"></td>
+		</tr>
+		<tr>
+			<td width=8 height=62>
+				<a href="javascript:Submit_onclick()">
+					<img id=ImgArrow src="images/al.gif" border=0 name=ImgArrow>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td width=8 background="images/ab.gif">	</td>
+		</tr>
+	</table>
+</body>
+</html>

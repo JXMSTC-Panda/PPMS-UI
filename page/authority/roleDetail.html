@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<base target="main" />
+<link rel="stylesheet" type="text/css" href="../../css/frontmiddle.css" />
+<link rel="stylesheet" type="text/css" href="../../css/lightbox.css" />
+<script language="javascript">
+	var checkedObj;
+	function doConfirm()
+	{
+		if(confirm("确定录入的信息正确吗？"))
+		{
+			location.href="userBaseInfoSingleResult.html";
+		}
+		return;
+	}
+
+	function divAction(obj, divName, functionName) {
+		checkedObj = obj;
+		if (obj.checked) {
+			if (functionName != '')
+			{
+				document.getElementById('functionName').innerText=functionName;
+			}
+			document.getElementById(divName).style.display='';
+			ShieldDiv();
+			InitBox(divName);
+		} else {
+			eval("document.getElementById('" + checkedObj.name + "_result')").innerHTML = '';
+			//eval("document.getElementById('" + checkedObj.name + "_result')").style.display='';
+		}
+	}
+
+	function ShieldDiv()
+	{
+		if(document.body.clientHeight>screen.height-137)
+		{
+			Layer1height=document.body.clientHeight;
+			Layer1width=document.body.offsetWidth;
+		}
+		else
+		{
+			Layer1height=document.body.scrollHeight;
+			Layer1width=document.body.scrollWidth;
+		}
+		Layer1height += 20;
+		Layer1width += 20;
+		var	shieldStr="<div id='PopupDIV2' oncontextmenu='event.returnValue=false' class='ShieldWinDIV' style='top:0;left:0;width:"+Layer1width+";height:"+Layer1height+";'></div>";
+		document.getElementById("ShieldWinDIV").innerHTML = shieldStr;
+	}
+
+	function InitBox(divName)
+	{
+		var range = GetRange();	
+		var lightBox = document.getElementById(divName);
+
+		lightBox.ox = (range.width - 600) / 2;
+		lightBox.oy = (range.height -500) / 2;
+		
+		//lightBox.style.top=(range.top + lightBox.oy) +"px";
+		//lightBox.style.left=(range.left + lightBox.ox) +"px";
+
+		lightBox.style.top=(range.top + 80) +"px";
+		lightBox.style.left=(range.left + lightBox.ox) +"px";
+		
+		/*parent.parent.document.body.onscroll = function(){
+			//range=GetRange();
+			//ShieldDiv();
+			//lightBox.style.top=(range.top + lightBox.oy) +"px";
+			//lightBox.style.left=(range.left + lightBox.ox) +"px";
+		};
+		parent.parent.document.body.onresize = function(){
+			
+			//range=GetRange();
+			//ShieldDiv();
+			//lightBox.style.top=(range.top + lightBox.oy) +"px";
+			//lightBox.style.left=(range.left + lightBox.ox) +"px";
+		}*/
+	}
+
+	function GetRange() {
+		var top     = document.documentElement.scrollTop;
+		var left    = document.documentElement.scrollLeft;
+		var height  = document.documentElement.scrollHeight;
+		var width   = document.documentElement.scrollWidth;
+		
+		if (top==0 && left==0 && height==0 && width==0) {
+			top     = document.body.scrollTop;
+			left    = document.body.scrollLeft;
+			height  = document.body.clientHeight;
+			width   = document.body.clientWidth;
+		}
+
+		return  {top:top  ,left:left ,height:height ,width:width } ;
+	}
+
+	function lightBoxCancel(divName) {
+		document.getElementById("ShieldWinDIV").innerHTML="";	
+		document.getElementById(divName).style.display='none';
+
+		if (eval("document.getElementById('" + checkedObj.name + "_result')").innerHTML == '')
+		{
+			checkedObj.checked = false;
+		}
+	}
+
+	function lightBoxOK(divName)
+	{
+		//if (confirm("您确定要保存吗？"))
+		//{
+			document.getElementById("ShieldWinDIV").innerHTML="";	
+			document.getElementById(divName).style.display='none';
+			for (var i = 0; i < document.forms[0].rd2.length; i++)
+			{
+				if (document.forms[0].rd2[i].checked)
+				{
+					var strHTML = "[可查询<a href=\"javascript:divAction(document.forms[0]." + checkedObj.name + ", 'divSearchScope', '人员基本信息查询');\">" + document.forms[0].rd2[i].value + "</a>]";
+					eval("document.getElementById('" + checkedObj.name + "_result')").innerHTML = strHTML;
+				}
+			}
+			
+			//eval("document.getElementById('" + checkedObj.name + "_result')").style.display='block';
+		//}
+	}
+</script>
+</head>
+
+<body>
+	<form name="form1">
+		<div id="divUserBaseUpdate" class="LightBoxWinDIV" style="position:absolute; padding:1px;display:none; border:0px;">
+				<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+				<tr>
+					<td>
+					关闭
+					</td>
+				</tr>
+				</table>
+				<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+				<tr>
+					<td >
+						<br />
+						<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+							<tr>
+								<td class=" titlebold">人员基本信息修改 权限属性设定</td>
+							</tr>
+						</table>
+						<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+							<tr>
+								<td class="line"></td>
+							</tr>
+						</table>
+						<br />
+						<table cellpadding="0" cellspacing="0" class="tableserch" align="center" style="width:95%">
+							<tr>
+								<td>
+									<br/>
+									<table cellpadding="0" cellspacing="0"  align="center" style="width:95%">
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">修改范围：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="radio" name="sex_main" checked>修改全部信息
+											<input type="radio" name="sex_main">只能修改岗位（营业员/熟练营业员-->实习值班经理）	
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 959px" align="center" colspan="4">
+											<input type="button" value="确定" onclick="javascript:lightBoxOK('divUserBaseUpdate');" class="btn_2"/>
+											<input type="button" value="取消" onclick="lightBoxCancel('divUserBaseUpdate');" class="btn_2"/>
+										</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<br />
+						<br />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="divSearchScope" class="LightBoxWinDIV" style="position:absolute; padding:1px;display:none; border:0px;">
+				<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+				<tr>
+					<td>
+					关闭
+					</td>
+				</tr>
+				</table>
+				<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+				<tr>
+					<td >
+						<br />
+						<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+							<tr>
+								<td class=" titlebold"><span id="functionName"></span>范围设定</td>
+							</tr>
+						</table>
+						<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+							<tr>
+								<td class="line"></td>
+							</tr>
+						</table>
+						<br />
+						<table cellpadding="0" cellspacing="0" class="tableserch" align="center" style="width:95%">
+							<tr>
+								<td>
+									<br/>
+									<table cellpadding="0" cellspacing="0"  align="center" style="width:95%">
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">查询范围：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="radio" name="rd2" checked value="营销中心所有员工">营销中心所有员工<br/>
+											<input type="radio" name="rd2" value="区域内所有员工">区域内所有员工<br/>
+											<input type="radio" name="rd2" value="片区内所有员工">片区内所有员工<br/>
+											<input type="radio" name="rd2" value="营业厅内所有员工">营业厅内所有员工<br/>
+											<input type="radio" name="rd2" value="营业厅内除店长外所有员工">营业厅内除店长外所有员工<br/>
+											<input type="radio" name="rd2" value="本人">本人<br/>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 959px" align="center" colspan="4">
+											<input type="button" value="确定" onclick="javascript:lightBoxOK('divSearchScope');" class="btn_2"/>
+											<input type="button" value="取消" onclick="lightBoxCancel('divSearchScope');" class="btn_2"/>
+										</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<br />
+						<br />
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="ShieldWinDIV"></div>
+		<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+			<tr>
+				<td >
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+						<tr>
+							<td class=" titlebold">角色详细</td>
+						</tr>
+					</table>
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+						<tr>
+							<td class="line"></td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" class="tableserch" align="center" style="width:95%">
+						<tr>
+							<td>
+								<br/>
+								<table cellpadding="0" cellspacing="0"  align="center" style="width:95%">
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">角色名称：</td>
+										<td style="height: 29px; width: 959px;" >
+											店长
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">系统管理员：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="radio" name="administratorFlag" disabled>是
+											<input type="radio" name="administratorFlag" checked disabled>否
+											&nbsp;&nbsp;<font color="red">[系统管理员可拥有所有操作权限]</font>
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" valign="top" style="width:10%">角色权限：</td>
+										<td style="height: 29px; width: 959px;" >
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>权限管理<br/>
+												<ul>
+													<input type="checkbox" name="halledType" disabled>权限管理
+													<ul><input type="checkbox" name="halledType" checked disabled>角色增加<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>角色查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>角色修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>角色删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>人员综合信息管理<br/>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>人员基本信息管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>人员基本信息单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>人员基本信息批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>人员基本信息批量修改<br/></ul>
+													<ul><input type="checkbox" name="userBaseSelect" checked disabled>人员基本信息查询 <span id="userBaseSelect_result">[可查询区域内所有员工]</span>
+														<!--<ul>
+															查询范围：<br/><input type="radio" name="rd1" checked disabled>营销中心所有员工<br/>
+															<input type="radio" name="rd1">区域内所有员工<br/>
+															<input type="radio" name="rd1">片区内所有员工<br/>
+															<input type="radio" name="rd1">营业厅内所有员工<br/>
+															<input type="radio" name="rd1">营业厅除店长外所有员工<br/>
+															<input type="radio" name="rd1">自己<br/>
+														</ul>-->
+													</ul>
+													<ul><input type="checkbox" name="userBaseUpdate"disabled>人员基本信息修改</ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>人员基本信息删除<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>人员基本信息失效<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>员工成长档案查询<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>个人成长线路查询<br/></ul>
+													<ul><input type="checkbox" name="userStage" disabled>人员阶段信息查询 <span id="userStage_result"></span></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>人员调厅记录查询<br/>
+													<ul><input type="checkbox" name="changeOrg" disabled>人员调厅记录查询 <span id="changeOrg_result"></span></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>营业厅编码查询<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>店长测评、进阶查询<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>店长测评查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>店长进阶查询<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>值班经理测评、进阶查询<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>值班经理测评查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>值班经理进阶查询<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>合作厅上岗证查询<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>上岗证单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>上岗证批量导入<br/></ul>
+													<ul><input type="checkbox" name="mountGuardCard" disabled>上岗证查询 <span id="mountGuardCard_result"></span></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>上岗证修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>上岗证删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>员工培训/考试管理<br/>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>月度考试管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度考试成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度考试成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="monthExam" disabled>月度考试成绩查询 <span id="monthExam_result"></span></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度考试成绩修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度考试成绩删除<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>业务培训管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务培训成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务培训成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务培训成绩查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务培训成绩修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务培训成绩删除<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>进阶培训管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>进阶培训成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>进阶培训成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>进阶培训成绩查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>进阶培训成绩修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>进阶培训成绩删除<br/></ul>
+												</ul>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>新员工/转正考核管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>新员工考核成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>新员工考核成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>新员工考核成绩查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>新员工考核成绩修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>新员工考核成绩删除<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>转正考核成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>转正考核成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>转正考核成绩查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>转正考核成绩修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>转正考核成绩删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>标准化和暗访管理<br/>
+												<ul>
+													<input type="checkbox" name="halledType" checked disabled>标准化检查成绩管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>标准化检查成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>标准化检查成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>标准化检查成绩查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>标准化检查成绩修改<br/></ul>
+												</ul>
+												<ul><input type="checkbox" name="halledType" checked disabled>监控检查成绩管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>监控检查成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>监控检查成绩批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>监控检查成绩查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>监控检查成绩修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>监控检查成绩删除<br/></ul>
+												</ul>
+												<ul><input type="checkbox" name="halledType" checked disabled>暗访检查成绩管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>暗访检查成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>暗访检查成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>暗访检查成绩单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>暗访检查成绩修改<br/></ul>
+												</ul>
+												<ul><input type="checkbox" name="halledType" checked disabled>业务差错检查成绩管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务差错单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务差错批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务差错查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务差错修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>业务差错删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>积分管理<br/>
+												<ul><input type="checkbox" name="halledType" checked disabled>积分管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>积分批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>积分查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>积分删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>创新管理<br/>
+												<ul><input type="checkbox" name="halledType" checked disabled>创新管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>创新提案单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>创新提案批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>创新提案查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>创新提案修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>创新提案删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>奖惩管理<br/>
+												<ul><input type="checkbox" name="halledType" checked disabled>员工奖惩信息管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>员工奖惩信息单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>员工奖惩信息批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>员工奖惩信息查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>员工奖惩信息修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>员工奖惩信息删除<br/></ul>
+												</ul>
+												<ul><input type="checkbox" name="halledType" checked disabled>营业厅奖惩信息管理
+													<ul><input type="checkbox" name="halledType" checked disabled>营业厅奖惩信息单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>营业厅奖惩信息批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>营业厅奖惩信息查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>营业厅奖惩信息修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>营业厅奖惩信息删除<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>绩效管理<br/>
+												<ul><input type="checkbox" name="halledType" checked disabled>月度绩效管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效未提交事项提醒<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效上传功能开通<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效删除<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效评分标准上传<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效评分标准更新<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效评分标准删除<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>月度绩效评分标准查看<br/></ul>
+												</ul>
+												<ul><input type="checkbox" name="halledType" checked disabled>年度绩效管理<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效单条录入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效批量导入<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效查询<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效修改<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效删除<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效评分标准上传<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效评分标准更新<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效评分标准删除<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>年度绩效评分标准查看<br/></ul>
+												</ul>
+											</ul>
+											<ul>
+												<input type="checkbox" name="halledType" checked disabled>其它<br/>
+												<ul><input type="checkbox" name="halledType" checked disabled>其它<br/>
+													<ul><input type="checkbox" name="halledType" checked disabled>批量导入模板下载<br/></ul>
+													<ul><input type="checkbox" name="halledType" checked disabled>系统设定<br/></ul>
+												</ul>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 959px" align="center" colspan="4">
+											<input type="button" value="修改" onclick="location.href='roleUpdate.html'" class="btn_2"/>
+											<input type="button" value="返回" onclick="location.href='roleSearch.html'" class="btn_2"/>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<br/>
+					<br />
+					<br />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

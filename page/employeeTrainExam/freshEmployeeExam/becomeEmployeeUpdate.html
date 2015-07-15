@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<base target="main" />
+<link rel="stylesheet" type="text/css" href="../../../css/frontmiddle.css" />
+<script language="javascript">
+	function doConfirm()
+	{
+		if(confirm("确定修改的信息正确吗？"))
+		{
+			location.href="becomeEmployeeSearch.html";
+		}
+		return;
+	}
+
+	function doSelectSingleEmployee()
+	{
+		window.open('../../selectSingleEmployee.html', 'newwindow', 'height=600, width=1000, top=200, left=200, toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, status=no');
+	}
+</script>
+<script src="../../../js/Calendar.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<form name="form1">
+		<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+			<tr>
+				<td >
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+						<tr>
+							<td class=" titlebold">转正考核成绩修改</td>
+						</tr>
+					</table>
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+						<tr>
+							<td class="line"></td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" class="tableserch" align="center" style="width:95%">
+						<tr>
+							<td>
+								<br />
+								<table cellpadding="0" cellspacing="0"  align="center" style="width:95%">
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">区域：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="text" name="areaName" disabled class="inputdisabled" value="东区">
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">营业厅编码：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="text" name="hallCode" disabled class="inputdisabled" value="1234">
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">营业厅名称：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="text" name="hallName" disabled class="inputdisabled" value="鼓楼营业厅">
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" style="width:10%">姓名：</td>
+										<td style="height: 29px; width: 959px;" >
+											<input type="text" name="employeeName" disabled class="inputdisabled" value="张三">
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title"  align="right">工号：</td>
+										<td style="width: 959px" >
+											<input type="text" name="companyNum" disabled class="inputdisabled" value="00011">
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title"  align="right">身份证号：</td>
+										<td style="width: 959px" >
+											<input type="text" name="idNum" disabled class="inputdisabled" value="123456789012345678">
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" >考试成绩：</td>
+										<td style="width: 959px" >
+											<input type="text" name="grade" value="86">
+											分
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" >汉字：</td>
+										<td style="width: 959px" >
+											<input type="text" name="characters" value="65">
+											个/分钟
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" >数字：</td>
+										<td style="width: 959px" >
+											<input type="text" name="number" value="223">
+											个/分钟
+										</td>
+									</tr>
+									<tr>
+										<td class="tablelist_title" align="right" >日期：</td>
+										<td style="width: 959px" >
+											<input type="text" name="time" onclick="getMonthString(this)" readonly value="2008-05">
+										</td>
+									</tr>	 
+									<tr>
+										<td class="tablelist_title" align="right" >备注：</td>
+										<td style="width: 959px" >
+											<textarea name="remark" style="height:100px;width:150px;">备注备注</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp; </td>
+										<td style="width: 959px">
+											<input type="button" name="goConfirmButton" value="确定" onclick="javascript:doConfirm();" class="btn_2"/>
+											<input type="reset" value="重置" class="btn_2"/>
+											<input type="button" name="goBackButton" value="返回" onclick="location.href='becomeEmployeeSearch.html';" class="btn_2"/>
+										</td>
+									</tr>
+								</table>
+								<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<base target="main" />
+<link rel="stylesheet" type="text/css" href="../../css/frontmiddle.css" />
+<script language="javascript">
+	function doAllSelected()
+	{
+		if(document.forms[0].elements["Checkbox0"].checked)
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = true;
+			}
+		} else
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = false;
+			}
+		}		
+	}
+
+	function doDelete()
+	{
+		if(confirm("确定要删除吗？"))
+		{
+			location.href="userBaseInfoSearch.html";
+		}
+		return;
+	}
+
+	function doInvalidate()
+	{
+		if(confirm("确定要失效吗？"))
+		{
+			location.href="userBaseInfoSearch.html";
+		}
+		return;
+	}
+
+	function doPassWDReset()
+	{
+		if(confirm("确定重置密码吗？"))
+		{
+			location.href="userBaseInfoSinglePassWDResetResult.html";
+		}
+		return;
+	}
+</script>
+</head>
+
+<body>
+	<form name="form1">
+		<table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+			<tr>
+				<td >
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+						<tr>
+							<td class=" titlebold">密码修改</td>
+						</tr>
+					</table>
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center">
+						<tr>
+							<td class="line"></td>
+						</tr>
+					</table>
+					<br />
+					<table cellpadding="0" cellspacing="0" width="95%"  align="center" class="tableserch">
+						<tr>
+							<td align="center" >
+								<table  cellpadding="0" cellspacing="0" width="95%">								
+									<tr>
+										<td width="40%" align="right">原密码：</td>
+										<td align="left"><input type="password" name="companyNum2" /></td>	
+									</tr>
+									<tr>
+										<td width="40%" align="right">新密码：</td>
+										<td align="left">
+											<input type="password" name="companyNum">										</td>
+									</tr>
+									<tr>
+									  <td width="40%" align="right">新密码确认：</td>
+									  <td align="left"><input type="password" name="companyNum" />                                      </td>
+								  </tr>
+									<tr>
+										<td colspan="2">
+											<input name="Button1" type="button" value="确定" class="btn_2"  onclick="location.href='userBaseInfoPassWDUpdateResult.html'"/>&nbsp;
+											<input name="Button2" type="reset" value="重置" class="btn_2" />	
+											<input name="Button2" type="reset" value="取消" class="btn_2"  onclick="javascript:window.close();"/>	
+										</td>
+									</tr>
+								</table>							
+							</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				
+			</form>
+				<br />
+			</td>
+		</tr>
+	
+</body>
+</html>

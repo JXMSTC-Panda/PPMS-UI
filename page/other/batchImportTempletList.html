@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Language" content="en-us" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<base target="main" />
+<link rel="stylesheet" type="text/css" href="../../css/frontmiddle.css" />
+<script language="javascript">
+	function doAllSelected()
+	{
+		if(document.forms[0].elements["Checkbox0"].checked)
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = true;
+			}
+		} else
+		{
+			for(var i = 1; i <=5 ;i++)
+			{
+				document.forms[0].elements["Checkbox" + i].checked = false;
+			}
+		}		
+	}
+
+	function doDelete()
+	{
+		if(confirm("确定要删除吗？"))
+		{
+			location.href="monthPerformanceSearch.html";
+		}
+		return;
+	}
+
+	function doUpload()
+	{
+		window.open('monthPerformanceStandard.html', 'newwindow', 'height=600, width=900, top=200, left=200, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no');
+	}
+
+	function doStandardDelete()
+	{
+		if(confirm("确定要删除月度绩效评分标准吗？"))
+		{
+			location.href="monthPerformanceSearch.html";
+		}
+		return;
+	}
+</script>
+<script src="../../js/Calendar.js" type="text/javascript"></script>
+</head>
+<body>
+<form name="form1">
+  <table  cellspacing="0" cellpadding="0" class="tablewk" align="center">
+  <tr>
+    <td ><br />
+      <table cellpadding="0" cellspacing="0" width="95%" style="height: 30px" align="center">
+        <tr>
+          <td class=" titlebold">功能列表</td>
+        </tr>
+      </table>
+      <table cellpadding="0" cellspacing="0" width="95%"  align="center">
+        <tr>
+          <td class="line"></td>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <table cellpadding="0" cellspacing="0" class="tablelist" align="center">
+        <tr>
+          <th colspan="2"><div align="left">请选择批量导入的功能模板：</div></th>
+        </tr>
+        <tr>
+          <th><div align="center">序号</div></th>
+          <th><div align="center">功能名</div></th>
+        </tr>
+        <tr>
+          <td><div align="center">1</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">人员基本信息批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">2</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">合作厅上岗证批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">3</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">月度考试批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">4</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">业务培训批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">5</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">进阶培训管理批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">6</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">新员工考核成绩批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">7</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">转正考核成绩批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">8</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">标准化检查成绩批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">9</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">监控检查成绩批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">10</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">暗访检查成绩批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">11</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html">业务差错检查成绩批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">12</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">积分批量导入模板(合作厅)</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">13</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">积分批量导入模板(主厅)</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">14</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">创新提案批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">15</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">员工奖惩信息批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">16</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">营业厅奖惩信息批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">17</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">月度绩效批量导入模板</a></div></td>
+        </tr>
+        <tr>
+          <td><div align="center">18</div></td>
+          <td nowrap><div align="center"><a href="batchImportTempletDownload.html"></a><a href="batchImportTempletDownload.html">年度绩效批量导入模板</a></div></td>
+        </tr>
+      </table>
+      <br />
+</form>
+<br />
+</td>
+</tr>
+</body>
+</html>
