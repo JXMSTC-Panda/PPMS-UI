@@ -26,7 +26,6 @@
 	</script>
 	<script src="../Plugin/assets/js/bootstrap.js"></script>
 
-	<!-- page specific plugin scripts -->
 	
 	<!-- ace scripts -->
 	<script src="../Plugin/assets/js/ace/elements.scroller.js"></script>
