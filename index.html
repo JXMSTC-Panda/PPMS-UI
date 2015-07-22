@@ -1,99 +1,334 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>人员成长档案管理系统</title>
-<link rel="stylesheet" type="text/css" href="css/logo.css" />
-<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Personnel Portfolio Management System</title>
 
-	function doRadioChange() {
-		if(document.forms[0].elements["loginType"][0].checked) {
-			document.forms[0].elements["companyNum"].disabled = false;
-			document.forms[0].elements["idNum"].disabled = true;
-			document.forms[0].elements["companyNum"].className = "";
-			document.forms[0].elements["idNum"].value = "";
-			document.forms[0].elements["idNum"].className = "inputdisabled";			
-		} else {
-			document.forms[0].elements["companyNum"].disabled = true;
-			document.forms[0].elements["idNum"].disabled = false;
-			document.forms[0].elements["companyNum"].value = "";
-			document.forms[0].elements["companyNum"].className = "inputdisabled";
-			document.forms[0].elements["idNum"].className = "";
-			
-		}
-	}
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/font-awesome.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.css" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace-rtl.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.css" />
+		<![endif]-->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<i class="ace-icon fa fa-leaf green"></i>									
+									<span class="white" id="id-text2">人员成长档案管理系统</span>
+								</h1>
+								<h4 class="blue" id="id-company-text">&copy; 南航一组</h4>
+							</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="ace-icon fa fa-coffee green"></i>
+												请输入你的工号
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="Username" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="Password" />
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace" />
+															<span class="lbl">记住账户</span>
+														</label>
+
+														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+															<i class="ace-icon fa fa-key"></i>
+															<span class="bigger-110">登录</span>
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+
+											<div class="social-or-login center">
+												<span class="bigger-110">其他方式登录</span>
+											</div>
+
+											<div class="space-6"></div>
+
+											<div class="social-login center">
+												<a class="btn btn-primary">
+													<i class="ace-icon fa fa-facebook"></i>
+												</a>
+
+												<a class="btn btn-info">
+													<i class="ace-icon fa fa-twitter"></i>
+												</a>
+
+												<a class="btn btn-danger">
+													<i class="ace-icon fa fa-google-plus"></i>
+												</a>
+											</div>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar clearfix">
+											<div>
+												<a href="#" data-target="#forgot-box" class="forgot-password-link">
+													<i class="ace-icon fa fa-arrow-left"></i>
+													忘记密码
+												</a>
+											</div>
+
+											<div>
+												<a href="#" data-target="#signup-box" class="user-signup-link">
+													注册用户
+													<i class="ace-icon fa fa-arrow-right"></i>
+												</a>
+											</div>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.login-box -->
+
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="ace-icon fa fa-key"></i>
+												Retrieve Password
+											</h4>
+
+											<div class="space-6"></div>
+											<p>
+												Enter your email and to receive instructions
+											</p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+
+													<div class="clearfix">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+															<i class="ace-icon fa fa-lightbulb-o"></i>
+															<span class="bigger-110">Send Me!</span>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												Back to login
+												<i class="ace-icon fa fa-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.forgot-box -->
+
+								<div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="ace-icon fa fa-users blue"></i>
+												New User Registration
+											</h4>
+
+											<div class="space-6"></div>
+											<p> Enter your details to begin: </p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="Username" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="Password" />
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="Repeat password" />
+															<i class="ace-icon fa fa-retweet"></i>
+														</span>
+													</label>
+
+													<label class="block">
+														<input type="checkbox" class="ace" />
+														<span class="lbl">
+															I accept the
+															<a href="#">User Agreement</a>
+														</span>
+													</label>
+
+													<div class="space-24"></div>
+
+													<div class="clearfix">
+														<button type="reset" class="width-30 pull-left btn btn-sm">
+															<i class="ace-icon fa fa-refresh"></i>
+															<span class="bigger-110">Reset</span>
+														</button>
+
+														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
+															<span class="bigger-110">Register</span>
+
+															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												<i class="ace-icon fa fa-arrow-left"></i>
+												Back to login
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.signup-box -->
+							</div><!-- /.position-relative -->
+
+							<div class="navbar-fixed-top align-right">
+								<br />
+								&nbsp;
+								<a id="btn-login-dark" href="#">Dark</a>
+								&nbsp;
+								<span class="blue">/</span>
+								&nbsp;
+								<a id="btn-login-blur" href="#">Blur</a>
+								&nbsp;
+								<span class="blue">/</span>
+								&nbsp;
+								<a id="btn-login-light" href="#">Light</a>
+								&nbsp; &nbsp; &nbsp;
+							</div>
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery1x.js'>"+"<"+"/script>");
 </script>
-</head>
-<body scroll="no" onload="javascript:doRadioChange();">
-	<form method="post" action="grasFrame.html">
-		<table cellpadding="0" cellspacing="0" class="logoin" align="center" >
-			<tr>
-				<td style="vertical-align:top;padding-top:200px;">
-					<table style="width: 85%; " cellpadding="0" cellspacing="0" align="center">
-						<tr>
-							<td style="width:10%"></td>
-							<td style="width:50%">
-								<table style="width: 100%" cellspacing="0" cellpadding="0" class="logoinput">
-									<tr>
-										<td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<input type="radio" name="loginType" value="0" checked="checked" onclick="javascript:doRadioChange();"/>用工号登录
-											<input type="radio" name="loginType" value="1" onclick="javascript:doRadioChange();"/>用身份证号登录
-										</td>
-									</tr>
-									<tr>
-										<td colspan="2">
-											<table style="width: 100%" cellspacing="0" cellpadding="0" class="logoinput">
-												<tr>
-													<td align="right" style="width:20%">工号：</td>
-													<td><input type="text" name="companyNum" size="22"/></td>
-												</tr>
-												<tr>
-													<td align="right">身份证号：</td>
-													<td><input type="text" name="idNum" size="22"/></td>
-												</tr>
-												<tr>
-													<td align="right" style="height: 30px">密码：</td>
-													<td style="height: 30px"><input type="password" name="password" size="22"/></td>
-												</tr>
-												<tr>
-													<td align="right">验证码：</td>
-													<td><input type="text" name="validateNum" size="22"/></td>
-												</tr>
-												<tr>
-													<td>&nbsp;</td>
-													<td>
-														<img src="images/validateNum.jpg" width="47" height="16"/>
-														<a href="#">看不清楚，换一张</a>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-										<td align="left" style=" height:50px;">
-											<input src="css/logobtn.jpg"  type="image"/>
-											<input src="css/zzbtn.jpg"  type="image" />
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td style="width:40%"></td>
-						</tr>
-					</table>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<table cellpadding="0" cellspacing="0" style="width:85%;height:35px;" align="center">
-						<tr>
-							<td style="text-align:center;padding-top:5px;">技术支持：江苏苏微软件技术有限公司</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</form>
-</body>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 $(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+			});
+			
+			
+			
+			//you don't need this, just used for changing background
+			jQuery(function($) {
+			 $('#btn-login-dark').on('click', function(e) {
+				$('body').attr('class', 'login-layout');
+				$('#id-text2').attr('class', 'white');
+				$('#id-company-text').attr('class', 'blue');
+				
+				e.preventDefault();
+			 });
+			 $('#btn-login-light').on('click', function(e) {
+				$('body').attr('class', 'login-layout light-login');
+				$('#id-text2').attr('class', 'grey');
+				$('#id-company-text').attr('class', 'blue');
+				
+				e.preventDefault();
+			 });
+			 $('#btn-login-blur').on('click', function(e) {
+				$('body').attr('class', 'login-layout blur-login');
+				$('#id-text2').attr('class', 'white');
+				$('#id-company-text').attr('class', 'light-blue');
+				
+				e.preventDefault();
+			 });
+			 
+			});
+		</script>
+	</body>
 </html>
